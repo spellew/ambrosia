@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1009980060464",
+    "firebase_url": "https://ambrosia-1d6d1.firebaseio.com",
+    "project_id": "ambrosia-1d6d1",
+    "storage_bucket": "ambrosia-1d6d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009980060464:android:ebb057750c38b2c7",
+        "android_client_info": {
+          "package_name": "com.shamroy.ambrosia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009980060464-9ggel93lguhctrl4b549nrm1sls3i1n7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZomFho7lbMRYgZullw130ww_cB7x5Jxw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
