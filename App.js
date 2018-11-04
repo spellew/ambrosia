@@ -1,102 +1,63 @@
-import React from 'react';
-import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-native';
+import React, { Component } from 'react';
+import { View, TouchableWithoutFeedback } from 'react-native';
+import { Icon } from 'react-native-elements';
+import { createMaterialTopTabNavigator } from 'react-navigation';
+import Home from './Home';
+import Profile from './Profile';
+import Search from './Search';
+import Plan from './Plan';
+import Recipe from './Recipe';
+import Consumer, { Provider } from './Context';
 
-import firebase from 'react-native-firebase';
-
-export default class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  async componentDidMount() {
-    // TODO: You: Do firebase things
-    // const { user } = await firebase.auth().signInAnonymously();
-    // console.warn('User -> ', user.toJSON());
-
-    // await firebase.analytics().logEvent('foo', { bar: '123'});
-  }
-
-  render() {
-    return (
-      <ScrollView>
-        <View style={styles.container}>
-          <Image source={require('./assets/ReactNativeFirebase.png')} style={[styles.logo]}/>
-          <Text style={styles.welcome}>
-            Welcome to {'\n'} React Native Firebase
-          </Text>
-          <Text style={styles.instructions}>
-            To get started, edit App.js
-          </Text>
-          {Platform.OS === 'ios' ? (
-            <Text style={styles.instructions}>
-              Press Cmd+R to reload,{'\n'}
-              Cmd+D or shake for dev menu
-            </Text>
-          ) : (
-            <Text style={styles.instructions}>
-              Double tap R on your keyboard to reload,{'\n'}
-              Cmd+M or shake for dev menu
-            </Text>
-          )}
-          <View style={styles.modules}>
-            <Text style={styles.modulesHeader}>The following Firebase modules are pre-installed:</Text>
-            {firebase.admob.nativeModuleExists && <Text style={styles.module}>admob()</Text>}
-            {firebase.analytics.nativeModuleExists && <Text style={styles.module}>analytics()</Text>}
-            {firebase.auth.nativeModuleExists && <Text style={styles.module}>auth()</Text>}
-            {firebase.config.nativeModuleExists && <Text style={styles.module}>config()</Text>}
-            {firebase.crashlytics.nativeModuleExists && <Text style={styles.module}>crashlytics()</Text>}
-            {firebase.database.nativeModuleExists && <Text style={styles.module}>database()</Text>}
-            {firebase.firestore.nativeModuleExists && <Text style={styles.module}>firestore()</Text>}
-            {firebase.functions.nativeModuleExists && <Text style={styles.module}>functions()</Text>}
-            {firebase.iid.nativeModuleExists && <Text style={styles.module}>iid()</Text>}
-            {firebase.invites.nativeModuleExists && <Text style={styles.module}>invites()</Text>}
-            {firebase.links.nativeModuleExists && <Text style={styles.module}>links()</Text>}
-            {firebase.messaging.nativeModuleExists && <Text style={styles.module}>messaging()</Text>}
-            {firebase.notifications.nativeModuleExists && <Text style={styles.module}>notifications()</Text>}
-            {firebase.perf.nativeModuleExists && <Text style={styles.module}>perf()</Text>}
-            {firebase.storage.nativeModuleExists && <Text style={styles.module}>storage()</Text>}
-          </View>
-        </View>
-      </ScrollView>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+export default createMaterialTopTabNavigator({
+  'Home': {
+    screen: Home,
+    navigationOptions: {
+      tabBarIcon: <Icon name="home" type="entypo" size={30} color="#000" containerStyle={{margin: -100}} />
+    }
   },
-  logo: {
-    height: 120,
-    marginBottom: 16,
-    marginTop: 64,
-    padding: 10,
-    width: 135,
+  'Plan': {
+    screen: Plan,
+    navigationOptions: {
+      tabBarIcon: <Icon name="calendar" type="entypo" size={30} color="#000" containerStyle={{margin: -100}} />
+    }
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  'Search': {
+    screen: Search,
+    navigationOptions: {
+      tabBarIcon: <Icon name="magnifying-glass" type="entypo" size={30} color="#000" containerStyle={{margin: -100}} />
+    }
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  'Recipe': {
+    screen: Recipe,
+    navigationOptions: {
+      tabBarIcon: <Icon name="open-book" type="entypo" size={30} color="#000" containerStyle={{margin: -100}} />
+    }
   },
-  modules: {
-    margin: 20,
+  'Profile': {
+    screen: Profile,
+    navigationOptions: {
+      tabBarIcon: <Icon name="user" type="font-awesome" size={30} color="#000" containerStyle={{margin: -100}} />
+    }
   },
-  modulesHeader: {
-    fontSize: 16,
-    marginBottom: 8,
+}, {
+  initialRouteName: 'Search',
+  tabBarPosition: 'bottom',
+  tabBarOptions: {
+    showLabel: false,
+    showIcon: true,
+    style: {
+      backgroundColor: '#fff',
+      paddingVertical: 4,
+    },
+    indicatorStyle: {
+      height: 2,
+      backgroundColor: '#000',
+      alignSelf: 'flex-end',
+    },
   },
-  module: {
-    fontSize: 14,
-    marginTop: 4,
-    textAlign: 'center',
-  }
+  style: {
+    backgroundColor: '#fff'
+  },
+  swipeEnabled: false
 });
