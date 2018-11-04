@@ -65,10 +65,13 @@ export default class App extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-         {this.state.loading ? <Loading /> : null}
+         {/* {this.state.loading ? <Loading /> : null}
          {this.state.loading ? null : <Provider>
           <Navigator />
-        </Provider>}
+        </Provider>} */}
+        <Provider>
+          <Navigator />
+        </Provider>
       </View>
     );
   }

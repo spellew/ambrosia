@@ -273,9 +273,10 @@ class Search extends React.Component {
       if (year && month && day) {
         const meals = this.props.getMeals();
         console.log('meals', meals);
+        console.log('day', `${year}-${month}-${day}`);
         const daily = meals[`${year}-${month}-${day}`];
         console.log('daily', daily);
-        if (daily.length) {
+        if (daily && daily.length) {
           let calories = 0;
           daily.forEach((meal, i) => {
             const recipe = meal.recipe;
